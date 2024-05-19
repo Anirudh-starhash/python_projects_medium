@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator</title>
+</head>
+<body>
+    <div class="row1">
+        <h2>Hey guys we generate a band name based on your preferences</h2>
+        <div class="row2">
+            <div class="animal">
+                <label for="a">Try to choose a animal name from given options</label>
+                <select name="animal" id="a">
+                    <option value=""></option>
+                    <option value="rabbit">rabbit</option>
+                    <option value="tiger">tiger</option>
+                    <option value="lion">lion</option>
+                    <option value="elephant">elephant</option>
+                    <option value="panther">panther</option>
+                    <option value="cheetah">cheetah</option>
+                    <option value="snake">snake</option>
+                    <option value="panda">panda</option>
+                    <option value="turtle">turtle</option>
+                    <option value="deer">deer</option>
+                </select>
+            </div>
+            <div class="element">
+                <label for="b">Try to choose a compund name from given options</label>
+                <select name="compund" id="b">
+                    <option value=""></option>
+                    <option value="nitride">nitride</option>
+                    <option value="sulphide">sulphide</option>
+                    <option value="antimony">antimony</option>
+                    <option value="bismuth">bismuth</option>
+                    <option value="mercury">mercury</option>
+                    <option value="oxide">oxide</option>
+                    <option value="bromide">bromide</option>
+                    <option value="chloride">chloride</option>
+                    <option value="iodide">iodide</option>
+                    <option value="fluoride">fluoride</option>
+                </select>
+
+            </div>
+            <div class="buttons">
+                <button class="add" id="butt">Submit</button>
+                <button class="add" id="reset">Reset</button>
+            </div>
+            <p id="output"></p>
+            <a href="./index.html"><button class="add">Home</button></a>
+            
+           
+        </div>
+    </div>
+    <style>
+        .left, .right {
+            float: left;
+            width: 20%; /* The width is 20%, by default */
+        }
+  
+        .main {
+            float: left;
+            width: 60%; /* The width is 60%, by default */
+        }
+  
+         /* Use a media query to add a breakpoint at 800px: */
+        @media screen and (max-width: 800px) {
+           .left, .main, .right {
+           width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+           }
+        }
+        h1{
+            color: white !important;
+        }
+        a{
+            text-align: center;
+        }
+        .row1,.row2{
+            display: flex;
+            justify-content:center;
+            gap: 40px;
+            flex-direction: column;
+            align-items: right;
+            width: 80%;
+            margin-left: 100px;
+            margin-top: 50px;
+            padding: 20px;
+        }
+        h2{
+            color: blue;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        label{
+            color: blue;
+            font-size: 30px;
+        }
+        body{
+            background-color: gainsboro;
+            justify-content: center;
+            align-items: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 30px;
+        }
+        .add,.add2{
+            background-color: aqua;
+            color: blue;
+            font-size: large;
+            font-weight: bold;
+            width: 200px;
+            height: 40px;
+        }
+        .add:hover{
+            transform: translate(2px);
+            background-color: aliceblue;
+        }
+        p{
+            color: blue;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+        }
+
+    </style>
+    <script>
+        let submitbutton = document.getElementById("butt")
+        let select1 = document.getElementById("a")
+        let select2 = document.getElementById("b")
+        let outputbox=document.getElementById("output")
+        let resetbutton=document.getElementById("reset")
+
+        submitbutton.addEventListener(
+            'click',
+            ()=>{
+                  let collect1 = select1.selectedOptions;
+                  let collect2 = select2.selectedOptions;
+                  let output = "";
+                  for (let i = 0; i < collect1.length; i++) {
+                      if (output === "") {
+                         output = "Your Band Name is : ";
+                      }
+                      output += collect1[i].label+"-"+collect2[i].label
+                  }
+                  if (output === "") {
+                    output = "You didn't choose anything!";
+                  }
+                  outputbox.innerHTML = output;
+
+                },
+                false,
+            );
+
+        resetbutton.addEventListener(
+            'click',
+            ()=>{
+                let output="";
+                outputbox.innerHTML=output;
+            },
+            false,
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <div class="row1">
+        <h1>Welcome to tip Calculator</h1>
+        <label id="l">Enter The total amount :   <input type="text" id="amount"></label>
+        <label id="l">Enter The tip value : <input type="text" id="tip"></label>
+        <label id="l">Number of people are :  <input type="text" id="num"></label>
+        <div class="buttons">
+            <button class="add" id="butt">Submit</button>
+            <button class="add" id="reset">Reset</button>
+        </div>
+       
+      <p id="outputBox"></p>
+
+    </div>
+    <style>
+        .left, .right {
+            float: left;
+            width: 20%; /* The width is 20%, by default */
+        }
+  
+        .main {
+            float: left;
+            width: 60%; /* The width is 60%, by default */
+        }
+  
+         /* Use a media query to add a breakpoint at 800px: */
+        @media screen and (max-width: 800px) {
+           .left, .main, .right {
+           width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+           }
+        }
+        h1{
+            color: blue !important;
+        }
+        .row1{
+            display: flex;
+            justify-content:space-between;
+            gap: 20px;;
+            align-items: center;
+            flex-direction: column;
+            align-items: right;
+            width: 50%;
+            margin-left:500px;
+            padding: 5px;
+            background-color: aliceblue;
+        }
+        h2{
+            color: blue !important;
+        }
+        body{
+            justify-content: center;
+            align-items: center;
+            background-image: url('./tip_calc.png');
+            background-repeat: no-repeat;
+            background-size: 90%;
+            background-attachment: fixed;
+        }
+        #l{
+            font-size: 20px;
+            color: red;
+        }
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 30px;
+        }
+        .add{
+            background-color: aqua;
+            color: blue;
+            font-size: large;
+            font-weight: bold;
+            width: 200px;
+            height: 40px;
+        }
+        .add:hover{
+            transform: translate(2px);
+            background-color: aliceblue;
+        }
+
+    </style>
+    <script type="text/javascript">
+        let submitbutton=document.getElementById("butt");
+        let reset=document.getElementById("reset")
+
+
+        submitbutton.addEventListener(
+            'click',
+            ()=>{
+                const l1=document.getElementById("amount").value;
+                const l2=document.getElementById("tip").value;
+                const l3=document.getElementById("num").value;
+                const output = (l1+l2)/l3;
+                document.getElementById("outputBox").innerHTML="The total bill is "+output;
+
+                },
+                false,
+            );
+
+        reset.addEventListener(
+            'click',
+            ()=>{
+                let output="";
+                document.getElementById("outputBox").innerHTML=output;
+
+            },
+            false,
+        );
+    </script>
+</body>
+</html>
